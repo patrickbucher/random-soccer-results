@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import os
+import random
 import sys
 
 
@@ -32,6 +33,13 @@ def reverse_pairs(pairings):
     return reversed_pairs
 
 
+def rand_goals(strength):
+    number = int(random.normalvariate(mu=strength, sigma=1.0))
+    if number < 0:
+        number = 0
+    return number
+
+
 def generate_results(teams_dir, results_dir):
     team_files = os.listdir(teams_dir)
     teams_by_file = {f: read_lines(os.path.join(teams_dir, f))
@@ -47,8 +55,13 @@ def generate_results(teams_dir, results_dir):
 
         assert len(rounds) == 2 * n
         assert all(map(lambda r: len(set(r)) == len(r), rounds))
-
-        print(rounds)
+        for r in rounds:
+            for p in r:
+                home, away = p[0], p[1]
+                home_s, away_s = team_strengths[home], team_strengths[away]
+                home_g, away_g = rand_goals(home_s), rand_goals(away_s)
+                print('%s %d:%d %s' % (home, home_g, away_g, away))
+                # TODO: output in individual round files
 
 
 if __name__ == '__main__':
