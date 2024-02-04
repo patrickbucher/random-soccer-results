@@ -18,20 +18,17 @@ def pair_up(teams):
     m = int(n / 2)
     head = teams[0]
     tail = teams[1:]
-    pairings = []
+    rounds = []
     for i in range(n-1):
         whole = [head] + tail
         pairs = list(zip(whole[:m], whole[m:]))
         tail = tail[1:] + [tail[0]]
-        pairings.append(pairs)
-    return pairings
+        rounds.append(pairs)
+    return rounds
 
 
-def reverse_pairs(pairings):
-    reversed_pairs = []
-    for pairing in pairings:
-        reversed_pairs.append(list(reversed(pairing)))
-    return reversed_pairs
+def reverse(rounds):
+    return list(map(lambda ps: [tuple(reversed(p)) for p in ps], rounds))
 
 
 def rand_goals(strength):
@@ -59,7 +56,7 @@ def generate_results(teams_dir, results_dir):
         strength = map(lambda x: 1 + x / n, reversed(range(0, n)))
         team_strengths = dict(zip(teams, strength))
         first_leg = pair_up(teams)
-        second_leg = reverse_pairs(first_leg)
+        second_leg = reverse(first_leg)
         rounds = first_leg + second_leg
 
         assert len(rounds) == 2 * (n - 1)

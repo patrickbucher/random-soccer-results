@@ -1,10 +1,10 @@
-Genoa 0:0 Juventus Turin
-Torino 3:2 Salernitana
-Napoli 0:1 Empoli
-Bologna 1:3 Cagliari
-Lazio Rom 0:1 Udinese
-Fiorentina 0:2 Verona
-AS Roma 0:1 Sassuolo
-Atalanta Bergamo 1:1 Lecce
-AC Milan 1:3 Frosinone
-Inter Mailand 2:1 Monza
+Monza 0:4 Inter Mailand
+Frosinone 2:0 AC Milan
+Lecce 0:2 Atalanta Bergamo
+Sassuolo 2:4 AS Roma
+Verona 2:2 Fiorentina
+Udinese 2:2 Lazio Rom
+Cagliari 2:0 Bologna
+Empoli 1:0 Napoli
+Salernitana 0:4 Torino
+Juventus Turin 0:2 Genoa

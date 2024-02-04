@@ -1,9 +1,9 @@
-Montpellier 0:0 AS Monaco
-Le Havre AC 0:0 Brest
-RC Strassburg 0:0 OGC Nizza
-Rennes 3:1 Lorient
-Lens 1:1 Clermont Foot
-Olympique Marseille 4:4 Lyon
-Stade Reims 0:0 Metz
-Lille 3:3 Toulouse
-Paris St-Germain 3:0 Nantes
+Nantes 1:0 Paris St-Germain
+Toulouse 0:0 Lille
+Metz 1:0 Stade Reims
+Lyon 0:2 Olympique Marseille
+Clermont Foot 1:2 Lens
+Lorient 1:4 Rennes
+OGC Nizza 0:4 RC Strassburg
+Brest 0:2 Le Havre AC
+AS Monaco 2:0 Montpellier

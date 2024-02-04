@@ -1,10 +1,10 @@
-Almeria 0:2 Alaves Vitoria
-Granada 3:1 Getafe
-Cadiz CF 2:1 Las Palmas
-Celta Vigo 0:2 FC Valencia
-FC Sevilla 0:0 Betis Sevilla
-RCD Mallorca 0:0 R.S. San Sebastian
-Villareal 0:1 Athletic Bilbao
-Rayo Vallecano 2:4 FC Barcelona
-Osasuna 0:2 Atletico Madrid
-Girona FC 1:1 Real Madrid
+Real Madrid 2:3 Girona FC
+Atletico Madrid 0:3 Osasuna
+FC Barcelona 0:1 Rayo Vallecano
+Athletic Bilbao 2:2 Villareal
+R.S. San Sebastian 1:0 RCD Mallorca
+Betis Sevilla 0:0 FC Sevilla
+FC Valencia 1:2 Celta Vigo
+Las Palmas 0:0 Cadiz CF
+Getafe 4:1 Granada
+Alaves Vitoria 0:1 Almeria

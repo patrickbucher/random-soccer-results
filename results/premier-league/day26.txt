@@ -1,10 +1,10 @@
-Nottingham Forest 0:2 Newcastle
-Brentford 1:1 West Ham United
-Crystal Palace 4:1 Aston Villa
-Bournemouth 4:0 Tottenham Hotspur
-Fulham 0:1 Arsenal
-Wolverhampton 3:0 Manchester City
-Chelsea 1:0 Sheffield United
-Manchester United 0:0 Burnley
-Brighton 0:0 Everton
-Liverpool 2:1 Luton Town
+Luton Town 0:3 Liverpool
+Everton 2:1 Brighton
+Burnley 3:0 Manchester United
+Sheffield United 0:2 Chelsea
+Manchester City 2:1 Wolverhampton
+Arsenal 1:4 Fulham
+Tottenham Hotspur 1:1 Bournemouth
+Aston Villa 2:0 Crystal Palace
+West Ham United 0:1 Brentford
+Newcastle 0:0 Nottingham Forest

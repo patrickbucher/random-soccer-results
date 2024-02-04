@@ -1,9 +1,9 @@
-VfL Wolfsburg 1:5 VfB Stuttgart
-1. FC Heidenheim 3:0 Bayern München
-Werder Bremen 0:0 Darmstadt
-TSG Hoffenheim 0:1 FSV Mainz 05
-SC Freiburg 0:3 1. FC Köln
-Eintracht Frankfurt 0:1 Union Berlin
-RB Leipzig 1:2 VfL Bochum
-Borussia Dortmund 0:2 Augsburg
-Bayer Leverkusen 0:3 Mönchengladbach
+Mönchengladbach 0:2 Bayer Leverkusen
+Augsburg 1:0 Borussia Dortmund
+VfL Bochum 3:2 RB Leipzig
+Union Berlin 0:2 Eintracht Frankfurt
+1. FC Köln 0:2 SC Freiburg
+FSV Mainz 05 1:2 TSG Hoffenheim
+Darmstadt 0:3 Werder Bremen
+Bayern München 4:3 1. FC Heidenheim
+VfB Stuttgart 3:0 VfL Wolfsburg
