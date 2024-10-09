@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import json
 import os
 import random
 import shutil
@@ -38,7 +39,7 @@ def rand_goals(strength):
     return number
 
 
-def generate_results(teams_dir, results_dir):
+def generate_results(teams_dir, results_dir, as_json=False):
     if not os.path.exists(results_dir):
         os.mkdir(out_dir)
 
@@ -62,14 +63,34 @@ def generate_results(teams_dir, results_dir):
         assert len(rounds) == 2 * (n - 1)
         assert all(map(lambda r: len(set(r)) == len(r), rounds))
 
+        def to_lines(results):
+            lines = []
+            for r in results:
+                home, away = r[0], r[1]
+                home_s, away_s = team_strengths[home], team_strengths[away]
+                home_g, away_g = rand_goals(home_s), rand_goals(away_s)
+                if as_json:
+                    lines.append({'homeTeam': home,
+                                  'awayTeam': away,
+                                  'homeGoals': home_g,
+                                  'awayGoals': away_g})
+                else:
+                    lines.append('%s %d:%d %s\n' % (home, home_g, away_g, away))
+            return lines
+
         for (i, r) in enumerate(rounds):
-            round_file = os.path.join(out_dir, f'day{i+1:02d}.txt')
+            round_file = os.path.join(out_dir, f'day{i+1:02d}')
+            if as_json:
+                round_file += 'json'
+            else:
+                round_file += 'txt'
+            lines = to_lines(rounds)
             with open(round_file, 'w') as f:
-                for p in r:
-                    home, away = p[0], p[1]
-                    home_s, away_s = team_strengths[home], team_strengths[away]
-                    home_g, away_g = rand_goals(home_s), rand_goals(away_s)
-                    f.write('%s %d:%d %s\n' % (home, home_g, away_g, away))
+                if as_json:
+                    f.write(json.dumps(lines, indent=2))
+                else:
+                    for line in lines:
+                        f.write(line)
 
 
 if __name__ == '__main__':
