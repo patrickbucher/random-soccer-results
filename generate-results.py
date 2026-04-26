@@ -8,9 +8,9 @@ import sys
 
 
 def read_lines(path):
-    with open(path, 'r') as f:
+    with open(path, "r") as f:
         content = f.read().strip()
-        return content.split('\n')
+        return content.split("\n")
 
 
 def pair_up(teams):
@@ -20,7 +20,7 @@ def pair_up(teams):
     head = teams[0]
     tail = teams[1:]
     rounds = []
-    for i in range(n-1):
+    for i in range(n - 1):
         whole = [head] + tail
         pairs = list(zip(whole[:m], whole[m:]))
         tail = tail[1:] + [tail[0]]
@@ -44,11 +44,10 @@ def generate_results(teams_dir, results_dir, as_json=False):
         os.mkdir(out_dir)
 
     team_files = os.listdir(teams_dir)
-    teams_by_file = {f: read_lines(os.path.join(teams_dir, f))
-                     for f in team_files}
+    teams_by_file = {f: read_lines(os.path.join(teams_dir, f)) for f in team_files}
 
     for file, teams in teams_by_file.items():
-        out_dir = os.path.join(results_dir, file.split('.')[0])
+        out_dir = os.path.join(results_dir, file.split(".")[0])
         if os.path.exists(out_dir):
             shutil.rmtree(out_dir)
         os.mkdir(out_dir)
@@ -70,23 +69,26 @@ def generate_results(teams_dir, results_dir, as_json=False):
                 home_s, away_s = team_strengths[home], team_strengths[away]
                 home_g, away_g = rand_goals(home_s), rand_goals(away_s)
                 if as_json:
-                    lines.append({'homeTeam': home,
-                                  'awayTeam': away,
-                                  'homeGoals': home_g,
-                                  'awayGoals': away_g})
+                    lines.append(
+                        {
+                            "homeTeam": home,
+                            "awayTeam": away,
+                            "homeGoals": home_g,
+                            "awayGoals": away_g,
+                        }
+                    )
                 else:
-                    lines.append('%s %d:%d %s\n' %
-                                 (home, home_g, away_g, away))
+                    lines.append("%s %d:%d %s\n" % (home, home_g, away_g, away))
             return lines
 
-        for (i, r) in enumerate(rounds):
-            round_file = os.path.join(out_dir, f'day{i+1:02d}')
+        for i, r in enumerate(rounds):
+            round_file = os.path.join(out_dir, f"day{i+1:02d}")
             if as_json:
-                round_file += '.json'
+                round_file += ".json"
             else:
-                round_file += '.txt'
+                round_file += ".txt"
             lines = to_lines(r)
-            with open(round_file, 'w') as f:
+            with open(round_file, "w") as f:
                 if as_json:
                     f.write(json.dumps(lines, indent=2, ensure_ascii=False))
                 else:
@@ -94,8 +96,18 @@ def generate_results(teams_dir, results_dir, as_json=False):
                         f.write(line)
 
 
-if __name__ == '__main__':
-    if len(sys.argv) != 3:
-        print(f'usage: {argv[0]} TEAM-DIRECTORY RESULT-DIRECTORY')
-        sys.exit(1)
-    generate_results(sys.argv[1], sys.argv[2], as_json=True)
+def usage():
+    print(f"usage: {sys.argv[0]} JSON|TEXT TEAM-DIRECTORY RESULT-DIRECTORY")
+    sys.exit(1)
+
+
+if __name__ == "__main__":
+    if len(sys.argv) != 4:
+        usage()
+    if sys.argv[1].lower() == "json":
+        as_json = True
+    elif sys.argv[1].lower() == "text":
+        as_json = False
+    else:
+        usage()
+    generate_results(sys.argv[2], sys.argv[3], as_json=as_json)
