@@ -17,15 +17,20 @@ def pair_up(teams):
     n = len(teams)
     assert n % 2 == 0
     m = int(n / 2)
-    head = teams[0]
-    tail = teams[1:]
     rounds = []
     for i in range(n - 1):
-        whole = [head] + tail
-        pairs = list(zip(whole[:m], whole[m:]))
-        tail = tail[1:] + [tail[0]]
+        pairs = list(zip(teams[:m], teams[m:]))
         rounds.append(pairs)
+        teams = rotate_around_first(teams)
     return rounds
+
+
+def rotate_around_first(items):
+    n = len(items)
+    m = int(n / 2)
+    left = items[:m]
+    right = items[m:]
+    return [left[0]] + left[2:] + [right[-1]] + [left[1]] + right[:-1]
 
 
 def reverse(rounds):
@@ -55,7 +60,7 @@ def generate_results(teams_dir, results_dir, as_json=False):
         n = len(teams)
         strength = map(lambda x: 1 + x / n, reversed(range(0, n)))
         team_strengths = dict(zip(teams, strength))
-        first_leg = pair_up(teams.copy())
+        first_leg = pair_up(teams)
         second_leg = reverse(first_leg)
         rounds = first_leg + second_leg
 
