@@ -55,7 +55,7 @@ def generate_results(teams_dir, results_dir, as_json=False):
         n = len(teams)
         strength = map(lambda x: 1 + x / n, reversed(range(0, n)))
         team_strengths = dict(zip(teams, strength))
-        first_leg = pair_up(teams)
+        first_leg = pair_up(teams.copy())
         second_leg = reverse(first_leg)
         rounds = first_leg + second_leg
 
